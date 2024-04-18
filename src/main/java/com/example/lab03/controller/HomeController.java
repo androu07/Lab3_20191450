@@ -7,7 +7,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomeController {
     @GetMapping("/index" )
-    public String unaPersona(){
+    public String paginaPrincipal(){
         return "index";
+    }
+
+    @GetMapping("/sedes" )
+    public String paginaSedes(){
+        return "sedes";
     }
 }
