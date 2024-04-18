@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Sedes</title>
+        <title>Veterinarios</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
               crossorigin="anonymous">
@@ -20,19 +20,25 @@
             <table class="table table-sm">
                 <tr>
                     <th>#</th>
-                    <th>Nombre de la sede</th>
-                    <th>Direccion</th>
-                    <th>Teléfono</th>
+                    <th>Nombre del veterinario</th>
+                    <th>Correo</th>
+                    <th>Sede</th>
                     <th></th>
                     <th></th>
                 </tr>
-                <tr th:each="sedes, info : ${listaSedes}">
+                <tr th:each="veterinarios, info : ${listaVeterinarios}">
                     <td th:text="${info.index + 1}"></td>
-                    <td th:text="${sedes.nombre}"></td>
-                    <td th:text="${sedes.direccion}"></td>
-                    <td th:text="${sedes.telefono}"></td>
-                    <td><a class="btn btn-primary" th:href="@{'/sedes/veterinarios' + '?id=' + ${sedes.id}}">Mostrar veterinarios</a></td>
-                    <td><a class="btn btn-danger" th:href="@{'/sedes/mascotas' + '?id=' + ${sedes.id}}">Mostrar mascotas</a></td>
+                    <td th:text="${veterinarios.nombre}"></td>
+                    <td th:text="${veterinarios.correo}"></td>
+                    <div th:if="${veterinarios.id == 3}"}>
+                        <td>St. Mary Hospital</td>
+                    </div>
+                    <div th:unless  ="${veterinarios.id == 3}"}>
+                        <td>City Hospital</td>
+                    </div>
+
+                    <td><a class="btn btn-primary" th:href="@{'/sedes/veterinarios' + '?id=' + ${sede.idsede}}">Mostrar veterinarios</a></td>
+                    <td><a class="btn btn-danger" th:href="@{'/sedes/mascotas' + '?id=' + ${sede.idsede}}">Mostrar mascotas</a></td>
                 </tr>
             </table>
         </div>

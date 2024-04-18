@@ -3,8 +3,8 @@ package com.example.lab03.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "sede")
-public class Sedes {
+@Table(name = "veterinario")
+public class Veterinarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -13,11 +13,11 @@ public class Sedes {
     @Column(name = "nombre", nullable = false)
     private String nombre;
 
-    @Column(name = "direccion")
-    private String direccion;
+    @Column(name = "correo")
+    private String correo;
 
-    @Column(name = "telefono")
-    private String telefono;
+    @Column(name = "sedeid")
+    private String sedeid;
 
     public int getId() { return id; }
 
@@ -31,20 +31,17 @@ public class Sedes {
         this.nombre = nombre;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String getSedeid() {
+        return sedeid;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
+    public void setSedeid(String sedeid) { this.sedeid = sedeid; }
 }
-
