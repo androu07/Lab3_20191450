@@ -89,7 +89,7 @@ public class PomodoroPucp extends AppCompatActivity {
 
         currentTask = executorService.submit(() -> {
 
-            int totalTimeInSeconds = 1 * 60 - 55;
+            int totalTimeInSeconds = 25 * 60;
 
             for (int i = totalTimeInSeconds; i >= 0; i--) {
 
@@ -139,7 +139,7 @@ public class PomodoroPucp extends AppCompatActivity {
 
         currentTask = executorService.submit(() -> {
 
-            int totalTimeInSeconds = 60 - 55;
+            int totalTimeInSeconds = 5 * 60;
 
             for (int i = totalTimeInSeconds; i >= 0; i--) {
 
