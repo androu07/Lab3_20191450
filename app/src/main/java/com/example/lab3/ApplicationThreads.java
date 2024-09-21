@@ -7,6 +7,11 @@ import java.util.concurrent.Executors;
 
 public class ApplicationThreads extends Application {
 
-    public ExecutorService executorService = Executors.newSingleThreadExecutor();
+    public ExecutorService executorService = Executors.newFixedThreadPool(4);
 
+    public void shutdownExecutor() {
+        if (executorService != null) {
+            executorService.shutdownNow(); // Cancelar tareas pendientes
+        }
+    }
 }
