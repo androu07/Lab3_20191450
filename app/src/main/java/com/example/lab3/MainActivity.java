@@ -1,5 +1,6 @@
 package com.example.lab3;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             if (!username.isEmpty() && !password.isEmpty()) {
                 loginUser(username, password);
             } else {
-                Toast.makeText(MainActivity.this, "Por favor, completa ambos campos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "¡Complete los campos!", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -57,10 +58,16 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<Usuario> call, Response<Usuario> response) {
                 if (response.isSuccessful()) {
                     Usuario usuario = response.body();
-                    Toast.makeText(MainActivity.this, "Bienvenido, " + usuario.getFirstName(), Toast.LENGTH_SHORT).show();
-                    // Aquí puedes lanzar el TimerActivity u otra actividad.
+
+                    Intent intent = new Intent(MainActivity.this, pomodoropucp.class);
+                    intent.putExtra("user_id", usuario.getId());
+                    intent.putExtra("user_fullname", usuario.getFirstName() + " " + usuario.getLastName());
+                    intent.putExtra("user_email", usuario.getEmail());
+                    intent.putExtra("user_gender", usuario.getGender());
+
+                    startActivity(intent);
                 } else {
-                    Toast.makeText(MainActivity.this, "Inicio de sesión fallido", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Error, datos incorrectos", Toast.LENGTH_SHORT).show();
                 }
             }
 
