@@ -6,11 +6,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.lab3.others.LoginRequest;
 import com.example.lab3.others.RetrofitClient;
@@ -59,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     Usuario usuario = response.body();
 
-                    Intent intent = new Intent(MainActivity.this, pomodoropucp.class);
+                    Intent intent = new Intent(MainActivity.this, PomodoroPucp.class);
                     intent.putExtra("user_id", usuario.getId());
                     intent.putExtra("user_fullname", usuario.getFirstName() + " " + usuario.getLastName());
                     intent.putExtra("user_email", usuario.getEmail());
